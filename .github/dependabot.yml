@@ -1,0 +1,13 @@
+version: 2
+updates:
+- package-ecosystem: github-actions
+  directory: '/'
+  open-pull-requests-limit: 10
+  reviewers:
+    - ingridkao
+  assignees:
+    - ingridkao
+  commit-message:
+    prefix: fix
+    prefix-development: chore
+    include: scope
