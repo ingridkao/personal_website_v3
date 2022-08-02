@@ -1,19 +1,20 @@
-const Info = {
-    locale: "zh-TW",
-    title: "Ingrid Kao",
-    description: "放一些日常",
-    url: "https://www.ingridkao.net/",
-    image: "mainImage.png"
-}
-//https://www.nuxtjs.cn/faq/github-pages
-
+import Sitemap from './config/sitemap'
+import { Info } from './config/Info'
 const RouterBase = process.env.DEPLOY_ENV === 'GH_PAGES'? {base: '/personal_website_v3/'}: {}
 
 export default {
     // Target: https://go.nuxtjs.dev/config-target
     target: 'static',
     router: {
-        ...RouterBase
+        ...RouterBase,
+        // https://nuxtjs.org/docs/features/file-system-routing#extendroutes
+        extendRoutes(routes, resolve) {
+            routes.push({
+                name: 'custom',
+                path: '*',
+                component: resolve(__dirname, 'pages/404.vue')
+            })
+        }
     },
 
     // Global page headers: https://go.nuxtjs.dev/config-head
@@ -59,7 +60,10 @@ export default {
     components: true,
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-    buildModules: [],
+    buildModules: [
+        //https://vueuse.org
+        '@vueuse/nuxt'
+    ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
@@ -71,19 +75,49 @@ export default {
         '@nuxtjs/axios',
         // https://go.nuxtjs.dev/content
         '@nuxt/content',
+        // https://sitemap.nuxtjs.org
+        '@nuxtjs/sitemap'
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
         // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
         baseURL: '/',
+        // proxy: true,
+        // prefix: '/notion_api',
     },
+    // proxy: {
+    //     '/notion_api/': {
+    //         target: 'https://api.notion.com/v1', 
+    //         changeOrigin: true, 
+    //         pathRewrite: {
+    //             '^/notion_api': '',
+    //         }
+    //     }
+    // },
 
     // Content module configuration: https://go.nuxtjs.dev/config-content
     content: {},
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {},
+    build: {
+        // extend (config, { isClient, isServer, isDev, loaders: { vue } }) {
+            // Extend only webpack config for development and client-bundle
+            // if (isDev && isClient) {
+                // enforce: 'pre',
+                // test: /\.(js|vue)$/,
+                // loader: 'eslint-loader',
+                // exclude: /(node_modules)/
+        extend (config) {
+            config.module.rules.push({
+                include: /node_modules/,
+                test: /\.mjs$/,
+                type: 'javascript/auto'
+            })
+        }
+    },
+
+    sitemap: Sitemap,
 
     // https://nuxtjs.org/docs/features/loading
     loading: {
