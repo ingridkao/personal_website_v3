@@ -28,21 +28,17 @@ jobs:
 
       - name: Install dependencies 👨🏻‍💻
         run: |
-          if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
+          if [ -e package-lock.json ]; then
           npm ci --prefer-offline --no-audit
           else
           npm i
           fi
 
-      - name: Run tests 🧪
-        run: |
-          if [ -e yarn.lock ]; then
-          yarn test
-          elif [ -e package-lock.json ]; then
-          npm run test
-          else
-          npm run test
-          fi
+      # - name: Run tests 🧪
+      #   run: |
+      #     if [ -e package-lock.json ]; then
+      #     npm run test
+      #     else
+      #     npm run test
+      #     fi
 
