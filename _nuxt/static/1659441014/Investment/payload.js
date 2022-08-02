@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/Investment", (function(a){return {data:[{Search:null,articles:[{slug:"test",toc:[],body:{type:"root",children:[{type:"element",tag:"p",props:{},children:[{type:"text",value:"1"}]}]},dir:"\u002FInvestment",path:"\u002FInvestment\u002Ftest",extension:".md",createdAt:a,updatedAt:a}]}],fetch:{},mutations:void 0}}("2022-08-02T11:48:54.365Z")));
