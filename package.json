@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "@vueuse/core": "^9.0.2",
-    "@vueuse/nuxt": "^9.0.2"
+    "@vueuse/nuxt": "^9.0.2",
+    "sass": "^1.54.9",
+    "sass-loader": "^10.3.1"
   }
 }

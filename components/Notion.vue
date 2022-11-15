@@ -59,8 +59,8 @@ export default {
         }
       }).catch(function (error) {
         // handle error
-        console.log(error);
-      });
+        console.log(error)
+      })
     },
     fetchPageContent() {
       const PageInfo = this.pageList[this.pageDisplay]
@@ -76,12 +76,9 @@ export default {
         }
       }).catch(function (error) {
         // handle error
-        console.log(error);
-      });
+        console.log(error)
+      })
     }
-
-
   }
-
 }
 </script>

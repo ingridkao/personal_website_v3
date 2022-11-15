@@ -144,4 +144,12 @@ ingridkao
 
 
 
+## 3. 引用全域scss
+> 不要將內容樣式寫入全域scss，在全域僅引入變數,mixin,funcion
+
+1. styleResources寫法已被棄用改成使用style-resources-module，參考[說明](https://nuxtjs.org/docs/configuration-glossary/configuration-build#styleresources)
+
+2. 詳細安裝[說明](https://github.com/nuxt-community/style-resources-module/)
+
+
 tags: `Vue` `Nuxt`

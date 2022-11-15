@@ -1,6 +1,6 @@
 <template>
     <div class="tranlate_container notranslate">
-        <CButton @click="showSelectMenu">
+        <CButton variant="outline" @click="showSelectMenu">
             {{selectedLangInfo? selectedLangInfo.name: null}}
         </CButton>
         <transition name="v-animate-zoom-in-top">
@@ -245,7 +245,7 @@ export default {
                 record => {
                     if (record.addedNodes[0] && record.addedNodes[0].value) {
                         if (this.selectedLanguageCode === record.addedNodes[0].value) {
-                            this.doGTranslate(record.addedNodes[0].value);
+                            this.doGTranslate(record.addedNodes[0].value)
                         }
                     }
                 }
@@ -282,21 +282,21 @@ export default {
                     language => language.code === browserLanguage
                 )
                 if (isBrowserLanguageInLanguages) {
-                    return browserLanguage;
+                    return browserLanguage
                 } else {
                     return defaultLang
                 }
-            };
+            }
             const handleGoogleCookieLanguageInLanguages = () => {
                 const isGoogleCookieLanguageInLanguages = !!this.languages.find(
                     language => language.code === googleCookieLanguage
-                );
+                )
                 if (isGoogleCookieLanguageInLanguages) {
                     return googleCookieLanguage
                 } else {
                     return defaultLang
                 }
-            };
+            }
             let selectedCode = defaultLang
             if (!isGoogleCookieLanguageExist) {
                 // 首次
@@ -313,10 +313,10 @@ export default {
                 navigator.language ||
                 navigator.browserLanguage ||
                 document.documentElement.lang
-            const filterLanguages = ["zh-CN", "zh-TW"];
+            const filterLanguages = ["zh-CN", "zh-TW"]
             if (filterLanguages.every(l => l !== browserLanguage)) {
                 if (browserLanguage.indexOf("-") > -1) {
-                    return browserLanguage.split("-")[0];
+                    return browserLanguage.split("-")[0]
                 }
             }
             return browserLanguage
@@ -329,7 +329,7 @@ export default {
                 ? googleTranslateCookieResult[2]
                 : defaultLang
             } else {
-                return "";
+                return ""
             }
         },
         translateHandler(code){

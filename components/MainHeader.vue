@@ -2,8 +2,8 @@
     <CBox
         as="nav"
         w="100%"
-        h="60px"
-        px="4"
+        h="4rem"
+        px="1rem"
         d="flex"
         justify-content="space-between"
         align-items="center"
@@ -11,7 +11,7 @@
         <CLink 
             as="nuxt-link" 
             to="/" 
-            h="50px" 
+            h="3.5rem" 
         >
             <c-image  
                 :src="require('static/icon.png')"
@@ -28,7 +28,7 @@
         >
             <CBox 
                 as="li"
-                mr="8px"
+                mr="0.5rem"
             >
                 <GoogleTranslate/>
             </CBox>

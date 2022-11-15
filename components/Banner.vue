@@ -31,7 +31,7 @@
             </svg>
         </div>
         <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-3/5 h-full">
-            <img class="w-full h-full object-cover" src="~/static/mainImage.png" alt="Ingrid Kao">
+            <!-- <img class="w-full h-full object-cover" src="~/static/mainImage.png" alt="Ingrid Kao"> -->
         </div>
     </div>
 </template>
